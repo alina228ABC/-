@@ -1,0 +1,64 @@
+MorseCode = {
+    'A': '.-',
+    'B': '-...',
+    'C': '-.-.',
+    'D': '-..',
+    'E': '.',
+    'F': '..-.',
+    'G': '--.',
+    'H': '....',
+    'I': '..',
+    'J': '.---',
+    'K': '-.-',
+    'L': '.-..',
+    'M': '--',
+    'N': '-.',
+    'O': '---',
+    'P': '.--.',
+    'Q': '--.-',
+    'R': '.-.',
+    'S': '...',
+    'T': '-',
+    'U': '..-',
+    'V': '...-',
+    'W': '.--',
+    'X': '-..-',
+    'Y': '-.--',
+    'Z': '--..'}
+
+
+def encode_to_morse(text):
+    return None
+
+
+def decode_from_morse(code):  # функция декода
+    CodeMorse = {}  # создание нового "зеркального" словаря
+    for a, b in MorseCode.items():
+        CodeMorse[b] = a
+    c = code.split('  ')  # разделение по двум пробелам слов
+    slova = []
+    for slovo in c:
+        bukvy = []
+        slovo = slovo.split(' ')  # разделение букв
+        for bukva in slovo:
+            bukvy.append(CodeMorse[bukva])
+        b = ''.join(bukvy)  # соединение букв
+        slova.append(b)
+    s = ' '.join(slova)  # соединение слов
+    return s.lower()
+
+
+def main():
+    while True:
+        text = input('Введите текст, чтобы закончить - путую строку')
+        if not text:
+            return None
+        if text:
+            vid = input('Введите "раскодировать" или "закодировать"')
+            if vid == "раскодировать":
+                print(decode_from_morse(text))
+            elif vid == "закодировать":
+                print(encode_to_morse(text))
+
+
+# main()
