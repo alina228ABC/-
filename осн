@@ -27,8 +27,15 @@ MorseCode = {
     'Z': '--..'}
 
 
-def encode_to_morse(text):
-    return None
+def encode_to_morse(text):  # функция раскодирования
+    total_text = []
+    for element in text.upper():
+        if element in MorseCode:    # проверка есть ли такой элемент в словаре
+            total_text.append(MorseCode[element])   # если есть кодирует
+        else:
+            total_text.append(element)    # если элемента нет в словаре, то добавляет без кодирования
+    total_text = ' '.join(total_text)
+    return total_text
 
 
 def decode_from_morse(code):  # функция декода
